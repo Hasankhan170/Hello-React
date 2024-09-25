@@ -1,13 +1,12 @@
 
 
-// const Cards = ({heading, title ,price , Hello})=>{
-//     return (
-//     <>
-//     <h1>{heading}</h1>
-//     <p>{title}</p>
-//     <button onClick={Hello}> Rs: {price} </button>
-//     </>
-//     )
-// }
+const Cards = ({heading, title})=>{
+    return (
+    <>
+    <h1>{heading}</h1>
+    <p>{title}</p>
+    </>
+    )
+}
 
-// export default Cards;
+export default Cards;

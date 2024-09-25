@@ -3,6 +3,7 @@
 import axios from "axios"
 import { useState } from "react"
 import { useEffect } from "react"
+import Cards from "./components/cards"
 
 
 
@@ -63,36 +64,95 @@ import { useEffect } from "react"
 // export default App;
 
 
-export default function App() {
-    const [users, setUsers] = useState([])
+// export default function App() {
+//     const [users, setUsers] = useState([])
+
+//     useEffect(()=>{
+//         axios('https://jsonplaceholder.typicode.com/users')
+//         .then((res)=>{
+//             console.log(res.data);
+//             setUsers(res.data)
+//         })
+//         .catch((error)=>{
+//             console.log(error);
+//         })
+//     },[])
+//   return (
+//     <>
+//     <div>
+//         {
+//             users.map((item,index)=>{
+//                 return (
+//                     <div key={index}>
+//                         <h2>{item.name}</h2>
+//                         <p>{item.email}</p>
+//                         <hr />
+//                     </div>
+//                 )
+//             })
+//         }
+//     </div>
+//     </>
+
+//   )
+// }
+
+
+
+
+
+function App() {
+
+    const [ users, setUsers] =  useState([])
 
     useEffect(()=>{
-        axios('https://jsonplaceholder.typicode.com/users')
-        .then((res)=>{
-            console.log(res.data);
-            setUsers(res.data)
-        })
-        .catch((error)=>{
-            console.log(error);
-        })
-    },[])
-  return (
-    <>
-    <div>
+               axios('https://jsonplaceholder.typicode.com/users')
+           .then((res)=>{
+                   console.log(res.data);
+              setUsers(res.data)
+                })
+           .catch((error)=>{
+                 console.log(error);
+               })
+            },[])
+
+
+            return (
+                <>
+                <div>
         {
             users.map((item,index)=>{
                 return (
                     <div key={index}>
                         <h2>{item.name}</h2>
                         <p>{item.email}</p>
+                        <p>{item.price}</p>
                         <hr />
                     </div>
                 )
             })
         }
     </div>
-    </>
+                </>
+            )
 
-  )
+//     const [counter,SetCounter] = useState(0)
+//   return (
+//     <>
+//     <h1>Gym {counter}</h1>
+//     <button onClick={()=> SetCounter(counter + 1)}>ADD</button>
+//     <button onClick={()=> SetCounter(counter - 1)}>less</button>
+
+//     {
+//         counter >= 20 ? <Cards heading= "best gym" title= "hogaya admission" /> : counter >= 10 ? <Cards heading= "best gym" title= "allowed but 1k extra charge" /> : <h1>not allowed</h1>
+//     }
+   
+
+
+//     </>
+//   )
 }
+
+export default App
+
 
