@@ -269,6 +269,18 @@ const App = () => {
     inputVal.current.value = ""
     
   }
+
+  const deleteTodo = (id)=>{
+    console.log("delete",id);
+    axios.delete(`http://localhost:3000/todos/${id}`)
+    .then((res)=>{
+      setRender(res.data.data)
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+    
+  }
   return (
     <>
     <h1>Todo App</h1>
@@ -282,6 +294,7 @@ const App = () => {
         render.map((item)=>{
           return <div key={item.id}>
             <h1>{item.title}</h1>
+            <button onClick={()=>deleteTodo(item.id)}>Delete</button>
           </div>
         })
       ):(
