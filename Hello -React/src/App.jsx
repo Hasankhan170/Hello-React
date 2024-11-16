@@ -1,5 +1,10 @@
 // // // // import { useState } from "react"
 
+import axios from "axios"
+import { useState } from "react"
+import { useRef } from "react"
+import { useEffect } from "react"
+
 // import axios from "axios"
 // import { useEffect, useRef, useState } from "react"
 
@@ -231,4 +236,45 @@
 
 // export default App
 
+
+
+
+const App = () => {
+  const inputVal = useRef()
+  const [render,setRender] = useState(null)
+  useEffect(()=>{
+    axios("http://localhost:3000/todos")
+    .then((res)=>{
+      setRender(res.data.data)
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  },[])
+
+  const formValue = (event)=>{
+    event.preventDefault()
+    console.log(inputVal.current.value);
+    
+  }
+  return (
+    <>
+    <h1>Todo App</h1>
+    <form onSubmit={formValue}>
+      <input type="text" ref={inputVal} />
+      <button type="submit">Add</button>
+    </form>
+
+    {
+      render && render.lenght > 0 ? render.map((item)=>{
+        return <div key={item.id}>
+          <h1>{item.title}</h1>
+        </div>
+      }):<h1>no data found</h1>
+    }
+    </>
+  )
+}
+
+export default App
 
