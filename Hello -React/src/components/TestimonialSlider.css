@@ -1,0 +1,74 @@
+.testimonial-slider {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #111;
+    padding: 40px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    position: relative;
+  }
+  
+  .testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content */
+  }
+  
+  .testimonial-image {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    margin:  0 auto;
+  }
+  
+  .testimonial p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .testimonial-rating {
+    margin: 10px 0;
+    color: #ffdd57;
+    font-size: 1.5rem;
+  }
+  
+  /* Move the arrows outside */
+  .slick-prev,
+  .slick-next {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .slick-prev {
+    left: -60px; /* Move the left arrow outside */
+  }
+  
+  .slick-next {
+    right: -60px; /* Move the right arrow outside */
+  }
+  
+  /* Change the arrow color */
+  .slick-prev:before,
+  .slick-next:before {
+    color: black; /* Customize the arrow color */
+    font-size: 24px;
+  }
+  
+  /* Optional: Adjust the dot styles */
+  .slick-dots {
+    bottom: -30px;
+  }
+  
+  .slick-dots li button:before {
+    color: white;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: #ffdd57; /* Highlight active dot */
+  }
+  

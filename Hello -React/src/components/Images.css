@@ -1,0 +1,88 @@
+.img-new-component {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  
+  .img-new-component-23 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .image-container-new-component {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px; /* Ensures the overlay doesn't go beyond the image */
+  }
+  
+  .overlay-new-component {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(153, 0, 0, 0.7); /* Adds the #990000 color with some transparency */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 20px; /* Match the image border radius */
+  }
+  
+  .image-container-new-component:hover .overlay-new-component {
+    opacity: 1;
+  }
+  
+  .overlay-new-component h3 {
+    color: white; /* Title color */
+    margin: 10px 0; /* Add margin around the title */
+  }
+  
+  .overlay-new-component p {
+    border: 1px solid white; /* Border around the button */
+    padding: 10px 15px; /* Padding inside the button */
+    color: white; /* Button text color */
+    border-radius: 10px; /* Rounded corners for the button */
+    cursor: pointer; /* Change cursor to pointer */
+    margin-top: 10px; /* Space above the button */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+  }
+  
+  .overlay-new-component p:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Change background on hover */
+  }
+  
+  /* Right Flower Image Styles */
+  .right-flower-image {
+    position: absolute; /* Keeps the flower image at the desired position */
+    top: 16%; /* Adjust the top position as needed */
+    right: 0; /* Aligns the right edge with the screen edge */
+    z-index: -1; /* Keeps the flower image in its intended layer */
+    overflow: hidden;
+  }
+  
+  .right-flower-image img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+  }
+  
+  /* Left Flower Image Styles */
+  .left-flower-image {
+    position: absolute; /* Keeps the flower image at the desired position */
+    top: 90%; /* Adjust the top position as needed */
+    left: 0; /* Aligns the left edge with the screen edge */
+    z-index: -1; /* Keeps the flower image in its intended layer */
+    overflow: hidden;
+  }
+  
+  .left-flower-image img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+  }
+  
