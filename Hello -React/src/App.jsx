@@ -284,7 +284,7 @@ const App = () => {
   const editTodo = (id,title)=>{
     console.log("edit todo");
     const updateTitle = prompt('update todo',title)
-    if(updateTitle){
+    
       axios.put(`http://localhost:3000/todos/${id}`,{
         title : updateTitle
       })
@@ -295,9 +295,6 @@ const App = () => {
       .catch((err)=>{
         console.log(err);
       })
-    }else{
-      console.log("canceled")
-    }
   }
   return (
     <>
