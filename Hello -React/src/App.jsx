@@ -241,20 +241,32 @@ import { useEffect } from "react"
 
 const App = () => {
   const inputVal = useRef()
-  const [render,setRender] = useState(null)
+  const [render,setRender] = useState([])
   useEffect(()=>{
     axios("http://localhost:3000/todos")
     .then((res)=>{
-      setRender(res.data.data)
+      setRender(res.data.data) 
     })
     .catch((err)=>{
       console.log(err);
     })
   },[])
 
+  
+
   const formValue = (event)=>{
     event.preventDefault()
-    console.log(inputVal.current.value);
+    axios.post("http://localhost:3000/todo",{
+      title : inputVal.current.value
+    })
+    .then((res)=>{
+      console.log(res.data.data);
+      setRender(res.data.data) 
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+    inputVal.current.value = ""
     
   }
   return (
@@ -266,11 +278,15 @@ const App = () => {
     </form>
 
     {
-      render && render.lenght > 0 ? render.map((item)=>{
-        return <div key={item.id}>
-          <h1>{item.title}</h1>
-        </div>
-      }):<h1>no data found</h1>
+      render.length > 0 ? (
+        render.map((item)=>{
+          return <div key={item.id}>
+            <h1>{item.title}</h1>
+          </div>
+        })
+      ):(
+        <h1>No Todo Found</h1>
+      )
     }
     </>
   )
