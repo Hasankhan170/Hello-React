@@ -279,7 +279,25 @@ const App = () => {
     .catch((err)=>{
       console.log(err);
     })
-    
+  }
+
+  const editTodo = (id,title)=>{
+    console.log("edit todo");
+    const updateTitle = prompt('update todo',title)
+    if(updateTitle){
+      axios.put(`http://localhost:3000/todos/${id}`,{
+        title : updateTitle
+      })
+      .then((res)=>{   
+        setRender(res.data.data)
+        console.log(res.data.data);
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
+    }else{
+      console.log("canceled")
+    }
   }
   return (
     <>
@@ -295,6 +313,7 @@ const App = () => {
           return <div key={item.id}>
             <h1>{item.title}</h1>
             <button onClick={()=>deleteTodo(item.id)}>Delete</button>
+            <button onClick={()=>editTodo(item.id,item.title)}>Edit</button>
           </div>
         })
       ):(
